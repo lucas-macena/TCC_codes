@@ -1,0 +1,126 @@
+
+.search-container {
+    background-color: var(--color-background-realce);
+    width: 30rem;
+    margin-top: 2rem;
+    padding-top: 1.5rem;
+    padding-bottom: 1rem;
+    border-radius: 10px;
+}
+
+
+.tabela table{
+    text-align: center;
+    align-items: center;
+    
+
+
+    background-color: var(--color-background);
+    
+    border-color: black;
+    border-style: solid;
+    
+    border-width: 1px;
+}
+
+.tabela table td{
+    text-align: center;
+    align-items: center;
+    background-color: var(--color-table);
+    
+    color: white;
+    border-color: black;
+    border-style: solid;
+    
+    border-width: 1px;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+
+    font-weight:500;
+    /* font-family: Poppins; */
+    font-size: 1.6rem;
+    color: var(--color-text-base);
+}
+
+.tabela img {
+    width:1.5vw;
+    height: 1.5vw;
+    padding-top: 0.5vh;
+}
+
+.tabela table tr td .botao{
+    width: 25px;
+    height: 25px;
+    background: none;
+    border: none;
+}
+
+@media screen and (min-height: 908px) and (orientation: portrait){
+    main {
+        
+        font-size: 50px;
+    }
+
+    #tipo-busca{
+        font-size: 50px;
+        height: 100px;
+        width: auto;
+    }
+
+    #buscar-text{
+        font-size: 50px;
+        height: 100px;
+        width: 400px;
+        padding: 5px;
+    }
+
+    #debug{
+        font-size: 50px;
+        padding-left: 20px;
+        padding-right: 20px;
+    }
+
+    .tabela table{
+        width: 95vw;
+        
+    }
+
+    .tabela table thead tr{
+        word-break: normal;
+        
+    }
+
+    .tabela table tr{
+        word-break: break-all;
+        
+    }
+
+    .tabela table tr td{
+        font-size: 20px;
+    }
+
+    #gerente{
+        word-break:normal;
+        
+        max-width: 150px;
+    }
+
+    .tabela table img {
+        height: 50px;
+        width: 50px;
+    }
+
+    #broker input {
+        font-size: 50px;
+        height: auto;
+        width: auto;
+        padding: 10px;
+    }
+
+    .search-container {
+        width: 50rem;
+        padding-bottom: 50px;
+    }
+}

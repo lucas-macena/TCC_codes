@@ -1,0 +1,66 @@
+
+{%if editando==true%}
+<table>
+    <tbody>
+        <tr id="{{fichaTomb.name}}">
+            {%if fichaTomb.state == "online"%}
+              <td><img src="/images/online.png" alt="online"></td>                
+            {%endif%}
+        
+            {%if fichaTomb.state == "offline"%}
+              <td><img src="/images/offline.png" alt="offline"></td>                
+            {%endif%}
+        
+            {%if fichaTomb.state == "f-s"%}
+              <td><img src="/images/f-s.png" alt="f-s"></td>                
+            {%endif%}
+        
+            <td>{{fichaTomb.name}}</td>
+            <td id="gerente"><input class="txt" type="text" value="{{fichaTomb.gerente}}" name="gerente"></td>
+            <td><input class="txt" type="text" value="{{fichaTomb.referencia}}" name="ref"></td>
+            <td><input class="txt" type="text" value="{{fichaTomb.topicoEnviar}}" name="mqttEnviar"></td>
+            <td><input class="txt" type="text" value="{{fichaTomb.topicoReceber}}" name="mqttRec"></td>
+            <td><input class="txt" type="text" value="{{fichaTomb.ip}}" name="ip"></td>
+            
+            {%if acesso == 'admin'%}
+            <td><button class="botao" onclick="salvar('{{fichaTomb.name}}')"><img src="/images/editIcon.png"></button></td>
+            {%endif%}
+          </tr>
+          
+    </tbody>
+
+    
+</table>
+
+
+{%else%}
+<table>
+    <tbody>
+        <tr id="{{fichaTomb.name}}">
+            {%if fichaTomb.state == "online"%}
+              <td><img src="/images/online.png" alt="online"></td>                
+            {%endif%}
+
+            {%if fichaTomb.state == "offline"%}
+              <td><img src="/images/offline.png" alt="offline"></td>                
+            {%endif%}
+
+            {%if fichaTomb.state == "f-s"%}
+              <td><img src="/images/f-s.png" alt="f-s"></td>                
+            {%endif%}
+
+            <td>{{fichaTomb.name}}</td>
+            <td id="gerente">{{fichaTomb.gerente}}</td>
+            <td>{{fichaTomb.referencia}}</td>
+            <td>{{fichaTomb.topicoEnviar}}</td>
+            <td>{{fichaTomb.topicoReceber}}</td>
+            <td>{{fichaTomb.ip}}</td>
+            {%if acesso == 'admin'%}
+            <td><button class="botao" onclick="editar('{{fichaTomb.name}}')"><img src="/images/editIcon.png"></button></td>
+            {%else%}
+            <td></td>
+            {%endif%}
+          </tr>
+    </tbody>
+</table>
+{%endif%}

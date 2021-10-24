@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SGL - Supervisório</title>
+<link rel="stylesheet" type="text/css" href="/styles/main.css"/>
+<link rel="stylesheet" type="text/css" href="/styles/supervisorio.css"/>
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.7.2.min.js'></script>
+<script src="/scripts/search.js"></script>
+<script src="/scripts/sideBar.js"></script>
+<link rel="shortcut icon" type="imagex/png" href="/images/lamotrizLogo.ico">
+
+</head>
+
+
+
+<body>
+  <main>
+      
+    <center>
+      
+      <div class="topo-pagina">
+        <a href="http://www.lamotriz.ufc.br/" target="_blank"><img id="lamotriz-logo" src="/images/lamotrizLogo.png"></a>
+        <div id="nome-projeto">
+          <font color =white></font>Sistema de Gestão do Lamotriz<br>
+          </font>
+            
+        </div>
+        <a href="https://github.com/lucas-macena" target="_blank"><img id="foto-perfil" src="https://avatars.githubusercontent.com/u/69221262?v=4" alt="fotoPerfil"></a>
+
+      </div>
+
+      <nav>
+        <input type="checkbox" name="menuSide" id="check">
+        <label for="check" class="menuSide">
+          <i class='fas fa-bars'></i>
+        </label>
+      
+
+      <div class="menu">
+        
+        
+        <ul>
+          <li class="item"><a href="http://{{endereço}}/">Home</a></li>
+          <li class="item"><a href="http://{{endereço}}/supervisorio">Supervisório</a></li>
+          <li class="item"><a href="http://{{endereço}}/equipamentos">Equipamentos</a></li>
+          <li class="item"><a href="http://{{endereço}}/usuarios">Usuários</a></li>
+          <li class="item"><a href="http://{{endereço}}/about">About</a></li>
+          <li class="item"><a href="http://{{endereço}}/logout">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    
+    <div class="topic-table">
+
+      {%if isConnected != 'conectado'%}
+        <form action="/conectar" id="topicos" method="post">
+          
+          
+          <table align="center">
+            <thead role="row" align="center">
+              
+              
+            </thead>
+            <br>
+            <tbody align="center">
+              
+              
+              <tr role="row">
+                <td>
+                  <!-- Tombamentos -->
+                </td>
+                <td>
+                  <select name="tomb" id="lista1">
+                    
+                    {%for equip in tombamentos%}
+                      {%if equip.name == tomb%}
+                        <option value={{equip.name}} selected=true>{{equip.name}}</option>
+                      {%else%}
+                        <option value={{equip.name}}>{{equip.name}}</option>
+                      {%endif%}
+                    {%endfor%}
+                  </select>
+                </td>
+              </tr>
+              <input type="hidden" id="usuarioC" name="usuario" value={{receivedUser}}>
+            </tbody>
+          </table>
+        </form>
+      {%endif%}
+
+      <form action="/descon" method="post" id="desconectar">
+        <input type="hidden" id="usuarioD" name="usuario" value={{receivedUser}}>
+        <input type="hidden" id="tombD" name="tomb" value={{tomb}}>
+      </form>
+  
+      
+
+      <div id="broker">
+        
+        <br>
+        {%if isConnected != 'conectado'%}
+          <input class="botao" id="connect-button" type="submit" value="Conectar" form="topicos">
+        {%else%}
+          <input class="botao" id="disconnect-button" type="submit" value="Desconectar" form="desconectar">
+        {%endif%}
+      </div>
+
+      <div id="status_io">
+        Usuário conectado: {{receivedUser}}
+        <br>
+        
+        <br>
+        {%if isConnected == 'conectado'%}
+          Conectado à {{tomb}}
+          <br>
+          <img src='/images/ligado.png''>
+          <p>Equipamento online</p>
+          
+        {%endif%}
+  
+        {%if isConnected == 'desconectado'%}
+          <img src='/images/desligado.png''>
+          <p>Equipamento offline</p>
+          
+        {%endif%}
+
+        {%if isAutorized == false%}
+        <script type="text/javascript">
+          window.alert("Usuário não autorizado!")
+        </script>
+          
+        {%endif%}
+      </div>
+    </div>
+
+    <br><br>
+
+    {%if isConnected == 'conectado'%}
+      <div class="refPID-div">
+        <form action="/sendData" method="post" id="referencia">
+          Referência do PID: <input class="txt" id="refPID" type="text" value="R" name="refPID">
+          <input type="hidden" id="usuario" name="usuario" value={{receivedUser}}>
+          <input type="hidden" id="tombSend" name="tomb" value={{tomb}}>
+          <input type="hidden" id="topicoEnviarRef" name="topicoEnviar" value={{topicoEnviar}}>
+        </form>
+          
+
+        <form action="/sendData" method="post" id="reiniciar">
+          <input type="hidden" id="reiniciarID" name="refPID" value="RST">
+          <input type="hidden" id="usuario" name="usuario" value={{receivedUser}}>
+          <input type="hidden" id="tombSend" name="tomb" value={{tomb}}>
+          <input type="hidden" id="topicoEnviarRef" name="topicoEnviar" value={{topicoEnviar}}>
+        </form>
+
+        
+        <input class="botao" id="search" type="submit" value="  Enviar " form="referencia">
+        <input class="botao" id="reiniciarButton" type="submit" value="  Reiniciar " form="reiniciar">
+      </div>
+    {%endif%}
+    
+
+    <!-- <p><font color="#3D3D3F"><b>Status do output (vindos do NodeMCU via MQTT):</b></font></p>
+    
+
+
+    <div id="debug">Debug / respostas do servidor:</div> -->
+    
+  </main>
+    
+<!-- <script src="./paho-mqtt.js"></script>
+<script src="./index.js"></script> -->
+</body>
+</html>

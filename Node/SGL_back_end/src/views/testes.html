@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<title>LamoScada</title>
+<link rel="stylesheet" type="text/css" href="/styles/main.css"/>
+<link rel="stylesheet" type="text/css" href="/styles/index.css"/>
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.7.2.min.js'></script>
+<script src="/scripts/search.js"></script>
+<!-- <script src="https://kit.fontawesome.com/a076d05399.js"></script> -->
+<script src="/scripts/sideBar.js"></script>
+
+</head>
+
+
+
+<body>
+  <main>
+      
+    <center>
+      
+      <div class="topo-pagina">
+        <center><img id="lamotriz-logo" src="/images/lamotriz.png"></center>
+        <div id="nome-projeto">
+          <font color =white></font>Sistema Supervisório do Lamotriz<br>
+          </font>
+            
+        </div>
+        <a href="https://github.com/lucas-macena" target="_blank"><img id="foto-perfil" src="https://avatars.githubusercontent.com/u/69221262?v=4" alt="fotoPerfil"></a>
+
+      </div>
+
+      <nav>
+        <input type="checkbox" name="menuSide" id="check">
+        <label for="check" class="menuSide">
+          <i class='fas fa-bars'></i>
+        </label>
+      
+
+      <div class="menu">
+        
+        
+        <ul>
+          <li class="item"><a href="http://{{endereço}}/testes">Home</a></li>
+          <li class="item"><a href="http://{{endereço}}/supervisorio">Supervisório</a></li>
+          <li class="item"><a href="http://{{endereço}}/equipamentos">Equipamentos</a></li>
+          <li class="item"><a href="http://{{endereço}}/usuarios">Usuários</a></li>
+          <li class="item"><a href="http://{{endereço}}/about">About</a></li>
+          <li class="item"><a href="http://{{endereço}}/logout">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+    
+    <div class="welcome-message">
+      <p>Bem vindo {{userConnected}}</p>
+      <p>Seja bem vindo ao sistema supervisório do Lamotriz v1.0</p>
+    </div>
+    
+  </main>
+    
+<!-- <script src="./paho-mqtt.js"></script>
+<script src="./index.js"></script> -->
+</body>
+</html>

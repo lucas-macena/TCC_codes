@@ -1,0 +1,181 @@
+body {
+    margin-top: 15vh;
+    /* width: 15vw;
+    height: 15vh;
+    align-self: center; */
+    margin-bottom: 10vh;
+    
+}
+
+main {
+    background-color: var(--color-topo-pagina);
+    /* border: none; */
+    height: 55vh;
+    border-radius: 50px;
+    width: 30vw;
+    align-self: center;
+    opacity: 85%;
+}
+
+.topo-login,
+.meio-pagina {
+    opacity: 100%;
+}
+
+.topo-login {
+    
+    
+    justify-content: center;
+    align-content: center;
+}
+
+#lamotriz-logo{
+    
+    /* height: 15vh;
+    width: 20vw; */
+    justify-self: center;
+    height: 6vw;
+    width: 6vw;
+    margin-top: 30px;
+    
+    
+    
+}
+
+#nome-projeto {
+    
+    justify-self: center;
+    /* height: 15vh;
+    width: 40vw; */
+    /* padding: 2.5vh; */
+    align-content: center;
+    justify-content: center;
+    text-align: center;
+}
+
+#login {
+    height: 15vh;
+    width: 10vw;
+    margin-top: 5vh;
+}
+
+fieldset {
+    width: 15vw;
+    padding: 15px;
+    margin-top: 10px;
+    border-color: white;
+}
+
+input {
+    width: 9rem;
+}
+
+#foto-perfil {
+    
+    height: 10vh;
+    width: 10vh;
+    padding: 10px;
+    margin-top: 10vh;
+}
+
+a:hover {
+    
+    opacity: 0.6;
+    transform: scale(1.2);
+    
+}
+
+.botao{
+    height: 3rem;
+    width: 9rem;
+    
+    cursor: pointer;
+    color: var(--color-button-text);
+    background-color: var(--color-button);
+    border-radius: 10px;
+    
+    margin: 10px;
+}
+
+.botao:hover{
+    opacity: 0.6;
+    transform: translateY(-4px);/*move o botão para cima*/
+}
+
+@media screen and (min-height: 908px) and (orientation: portrait){
+    #lamotriz-logo {
+        /* height: 300px;
+        width: 50vw; */
+        height: 300px;
+        width: 300px;
+        margin-bottom: 1vh;
+    }
+
+    #nome-projeto {
+    
+        
+        
+        /* position: fixed;
+        top: 20vh;
+        left: 20vw; */
+        text-align: center;
+        font-size: 40px;
+        margin: auto;
+        width: 70vw;
+    }
+    
+    #foto-perfil {
+        
+        height: 30px;
+        width: 30px;
+        padding: 1px;
+        margin-top: 3vh;
+        font-size: 40px;
+        display: none;
+    }
+
+    #login {
+        height: 50px;
+        width: 20vw;
+        margin-top: 5vh;
+    }
+
+    table tr {
+        height: 10px;
+        width: 50vw;
+        
+    }
+
+    table tr td{
+        height: 20px;
+        
+        font-size: 50px;
+    }
+
+    input{
+        height: 100px;
+        width: 25vw;
+        font-size: 50px;
+        border-radius: 50px;
+    }
+
+    main {
+        position: fixed;
+        top: 10vh;
+        
+        height: 50vh;
+        width: 70vw;
+        align-content: center;
+
+    }
+
+    /* body {
+        background-image: none;
+    } */
+
+    #connect-button {
+        height: 100px;
+        width: 35vw;
+        border-radius: 50px;
+    }
+}

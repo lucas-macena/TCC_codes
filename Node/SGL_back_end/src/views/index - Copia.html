@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+
+<title>LamoScada</title>
+<link rel="stylesheet" type="text/css" href="/styles/main.css"/>
+<link rel="stylesheet" type="text/css" href="/styles/index.css"/>
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.7.2.min.js'></script>
+<script src="/scripts/search.js"></script>
+<script src="https://kit.fontawesome.com/a076d05399.js"></script>
+
+</head>
+
+
+
+<body>
+  <main>
+      
+    <center>
+      
+      <div class="topo-pagina" border ="0" width="100%">
+        <center><img id="lamotriz-logo" src="/images/lamotriz.png"></center>
+        <div id="nome-projeto">
+          <center><font color =white><h1>Sistema Supervisório do Lamotriz</h1><br>
+            Autor: Lucas Macena Lima da Silva</font>
+            </center>
+        </div>
+        <a href="https://github.com/lucas-macena"><img id="foto-perfil" src="https://avatars.githubusercontent.com/u/69221262?v=4" alt="fotoPerfil"></a>
+
+      </div>
+
+      <input type="checkbox" name="menuSide" id="sideMenu">
+      <label for="sideMenu">
+        <i class='fas fa-bars'></i>
+      </label>
+
+    <div class="menu">
+      
+
+      <ul>
+        <li class="item"><a href="http://{{endereço}}/" onclick="homeOnClick()">Home</a></li>
+        <li class="item"><a href="http://{{endereço}}/supervisorio">Supervisório</a></li>
+        <li class="item"><a href="http://{{endereço}}/equipamentos">Equipamentos</a></li>
+        <li class="item"><a href="http://{{endereço}}/usuarios">Usuários</a></li>
+        <li class="item"><a href="http://{{endereço}}/about">About</a></li>
+        <li class="item"><a href="http://{{endereço}}/logout">Logout</a></li>
+      </ul>
+    </div>
+
+    <div class="welcome-message">
+      <p>Bem vindo {{userConnected}}</p>
+      <p>Seja bem vindo ao sistema supervisório do lamotriz</p>
+    </div>
+    
+  </main>
+    
+<!-- <script src="./paho-mqtt.js"></script>
+<script src="./index.js"></script> -->
+</body>
+</html>

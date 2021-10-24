@@ -1,0 +1,45 @@
+const express = require('express')
+const app = express()
+const dotenv = require('dotenv').config()
+
+// const {index,equipamentos,sendData,conectar,desconectar,supervisorio,searchFor,login,usuarios} = require('./pages')
+const {sendData,conectar,desconectar} = require('./pages')
+const {teste,listenMQTT} = require('./mqttServer/listenMQTT')
+
+const nunjucks = require('nunjucks')
+nunjucks.configure('src/views', {
+    express: app,
+    noCache: true,
+})
+
+const equipamentos = require('./routes/equipamentos.routes')
+const index = require('./routes/index.routes')
+const supervisorio = require('./routes/supervisorio.routes')
+const usuarios = require('./routes/usuarios.routes')
+const login = require('./routes/login.routes')
+const about = require('./routes/about.routes')
+const testes = require('./routes/teste.routes')
+const logout = require('./routes/logout.routes')
+const sistema = require('./routes/sistema.routes')
+const fichaUser = require('./routes/fichaUser.routes')
+const editTomb = require('./routes/editTomb.routes')
+// app.use('/equipamentos',equipamentos)
+
+app
+.use(express.urlencoded({ extended: true }))
+.use(express.static("public"))
+.use('/equipamentos',equipamentos.router)
+.use('/',index.router)
+.use('/supervisorio',supervisorio.router)
+.use('/usuarios',usuarios.router)
+.use("/login",login.router)
+.use('/about',about.router)
+.use('/testes',testes.router)
+.use('/logout',logout.router)
+.use('/sistema',sistema.router)
+.use('/fichaUser',fichaUser.router)
+.use('/editTomb',editTomb.router)
+.post("/sendData",sendData)
+.post("/conectar",conectar)
+.post("/descon",desconectar)
+.listen(process.env.LOCALPORT,listenMQTT())

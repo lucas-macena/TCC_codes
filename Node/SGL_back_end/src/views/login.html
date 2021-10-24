@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SGL - Login</title>
+<link rel="stylesheet" type="text/css" href="/styles/main.css"/>
+<link rel="stylesheet" type="text/css" href="/styles/login.css"/>
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.7.2.min.js'></script>
+
+<link rel="shortcut icon" type="imagex/png" href="/images/lamotrizLogo.ico">
+
+</head>
+
+
+
+<body>
+  <main>
+    <div class="topo-login">
+        <center><img id="lamotriz-logo" src="/images/lamotrizLogo.png"></center>
+        <div id="nome-projeto">
+            <font color =white>Sistema de Gestão do Lamotriz<br>
+            Autor: Lucas Macena Lima da Silva</font>
+            
+        </div>
+    </div>
+
+    <center>
+    
+      <div class="meio-pagina">
+        
+            
+            <fieldset>
+                
+                <table align="center">
+                   
+                    <tbody align="center">
+                        <form action="/login" id="login" method="post">
+                            <tr role="row">
+                                <td>
+                                    Usuário
+                                </td>
+                                <td>
+                                    <input class="txt" id="user-text" type="text" value="" name="user">
+                                </td>
+                                </tr>
+
+                            <tr role="row">
+                                <td>
+                                    Senha
+                                </td>
+                                <td>
+                                    <input class="txt" id="pass-text" type="password" value="" name="pass">
+                                </td>
+
+                                <td></td>
+                            </tr>
+                        </form>
+                    </tbody>
+                  </table>
+                  <input class="botao" id="connect-button" type="submit" value="Entrar" form="login">
+
+                
+                  
+            </fieldset>
+        
+        
+        
+      </div>
+
+
+    
+      
+      <!-- <a href="https://github.com/lucas-macena" target="_blank"><img id="foto-perfil" src="https://avatars.githubusercontent.com/u/69221262?v=4" alt="fotoPerfil"></a> -->
+    </center>
+  </main>
+  
+</body>
+</html>

@@ -1,0 +1,12 @@
+Node/SGL_back_end/node_modules/
+Node/SGL_back_end/.env
+Node/SGL_back_end/src/database/database.sqlite
+
+Node/SGL_front_end/react/node_modules/
+Node/SGL_front_end/react/.env
+
+Python/venv/
+Python/IPs.py
+Python/.idea/
+Python/__pycache__/
+

@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SGL - Usuários</title>
+<link rel="stylesheet" type="text/css" href="/styles/main.css"/>
+<link rel="stylesheet" type="text/css" href="/styles/usuarios.css"/>
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.7.2.min.js'></script>
+<script src="/scripts/search.js"></script>
+<script src="/scripts/sideBar.js"></script>
+<script src="/scripts/usuariosVer.js"></script>
+<link rel="shortcut icon" type="imagex/png" href="/images/lamotrizLogo.ico">
+
+</head>
+
+
+
+<body>
+  <main>
+      
+    <center>
+      <div class="topo-pagina">
+        <a href="http://www.lamotriz.ufc.br/" target="_blank"><img id="lamotriz-logo" src="/images/lamotrizLogo.png"></a>
+        <div id="nome-projeto">
+          <font color =white></font>Sistema de Gestão do Lamotriz<br>
+          </font>
+            
+        </div>
+        <a href="https://github.com/lucas-macena" target="_blank"><img id="foto-perfil" src="https://avatars.githubusercontent.com/u/69221262?v=4" alt="fotoPerfil"></a>
+
+      </div>
+
+      <nav>
+        <input type="checkbox" name="menuSide" id="check">
+        <label for="check" class="menuSide">
+          <i class='fas fa-bars'></i>
+        </label>
+      
+
+      <div class="menu">
+        
+        
+        <ul>
+          <li class="item"><a href="http://{{endereço}}/">Home</a></li>
+          <li class="item"><a href="http://{{endereço}}/supervisorio">Supervisório</a></li>
+          <li class="item"><a href="http://{{endereço}}/equipamentos">Equipamentos</a></li>
+          <li class="item"><a href="http://{{endereço}}/usuarios">Usuários</a></li>
+          <li class="item"><a href="http://{{endereço}}/about">About</a></li>
+          <li class="item"><a href="http://{{endereço}}/logout">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="corpo">
+
+      
+      
+      
+
+
+      <div class="formulario" id="procurar">
+
+      
+        <div class="search-container">
+          <form action="/usuarios" id="buscar" method="post">
+            
+              <div id="textoBusca">Buscar Usuário</div>
+              <br>
+              <select name="busca" id="tipo-busca">
+                <!-- <option value=""></option> -->
+                <option value="buscaName">Nome</option>
+                <option value="buscaAcesso">Acesso</option>
+                <option value="buscaTomb">Tombamento</option>
+                <option value="buscaStatus">Status</option>
+              </select>
+              <input class="txt" id="buscar-text" type="text" value="" name="nome">
+
+          </form>
+          <input class="botao" id="buscar-button" type="submit" value="Buscar" form="buscar">
+          
+        
+        </div>
+      
+      
+      
+    
+        <br><br>
+
+
+      
+        <div class="tabela">
+          
+
+            {%if usuarios == ""%}
+
+            <p class="no-results">Nenhum usuário encontrado</p>
+            <script type="text/javascript">
+              window.alert("Nenhum resultado!")
+            </script>
+
+            {%else%}
+              <table id="userTab">
+                <thead>
+                  <tr>
+                    <td>Nome</td>
+                    <td>Acesso</td>
+                    <td>Tombamento</td>
+                    <td>Status</td>
+                    <td>Github</td>
+                    <td>LinkedIn</td>
+                    <td></td>
+                  </tr>
+                </thead>
+                <tbody>
+            {%for user in usuarios%}
+      
+                  <tr>
+                    
+                    <td id="nome">{{user.name}}</td>
+                    <td>{{user.access}}</td>
+                    <td>{{user.tombamento}}</td>
+                    <td>{{user.status}}</td>
+                    {%if user.github != ''%}
+                    <td><a href={{user.github}} target="_blank"><img class="logoImage" src="/images/gitLogo.png" alt="github"></a></td>
+                    {%else%}
+                    <td>-</td>
+                    {%endif%}
+                    {%if user.linkedin != ''%}
+                    <td><a href={{user.linkedin}} target="_blank"><img class="logoImage" src="/images/linkedinLogo.png" alt="linkedin"></a></td>
+                    {%else%}
+                    <td>-</td>
+                    {%endif%}
+                    <td><input class="botao" id="buscar-button" type="url" placeholder="https://google.com" readonly=true value="Ver" onclick="ver('{{user.user}}')"></td>
+                  </tr>
+                
+            {%endfor%}
+                </tbody>
+              </table>
+            {%endif%}
+          
+
+        </div>
+      </div>
+    </div>
+    
+  </main>
+</body>
+</html>

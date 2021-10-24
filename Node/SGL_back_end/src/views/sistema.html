@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SGL - Sistema</title>
+<link rel="stylesheet" type="text/css" href="/styles/main.css"/>
+<link rel="stylesheet" type="text/css" href="/styles/sistema.css"/>
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.7.2.min.js'></script>
+<script src="/scripts/search.js"></script>
+<script src="/scripts/sideBar.js"></script>
+<link rel="shortcut icon" type="imagex/png" href="/images/lamotrizLogo.ico">
+
+</head>
+
+
+
+<body>
+  <main>
+      
+    <center>
+      <div class="topo-pagina">
+        <a href="http://www.lamotriz.ufc.br/" target="_blank"><img id="lamotriz-logo" src="/images/lamotrizLogo.png"></a>
+        <div id="nome-projeto">
+          <font color =white></font>Sistema de Gestão do Lamotriz<br>
+          </font>
+            
+        </div>
+        <a href="https://github.com/lucas-macena" target="_blank"><img id="foto-perfil" src="https://avatars.githubusercontent.com/u/69221262?v=4" alt="fotoPerfil"></a>
+
+      </div>
+
+      <nav>
+        <input type="checkbox" name="menuSide" id="check">
+        <label for="check" class="menuSide">
+          <i class='fas fa-bars'></i>
+        </label>
+      
+
+      <div class="menu">
+        
+        
+        <ul>
+          <li class="item"><a href="http://{{endereço}}/">Home</a></li>
+          <li class="item"><a href="http://{{endereço}}/supervisorio">Supervisório</a></li>
+          <li class="item"><a href="http://{{endereço}}/equipamentos">Equipamentos</a></li>
+          <li class="item"><a href="http://{{endereço}}/usuarios">Usuários</a></li>
+          <li class="item"><a href="http://{{endereço}}/about">About</a></li>
+          <li class="item"><a href="http://{{endereço}}/sistema">Sistema</a></li>
+          <li class="item"><a href="http://{{endereço}}/logout">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+    <div class="corpo">
+
+      
+      
+      {%if isAutorized=="admin"%}
+      <div class="formulario" id="inserirNovo">
+      <div>Cadastrar novo usuário</div>
+      <br>
+      <form action="/sistema/newUser" id="cadastrar" method="post">
+        <table align="center" id="newUserData">
+          
+          <tbody align="center">
+            
+            
+            <tr role="row">
+              <td>
+                Nome
+              </td>
+              <td>
+                <input class="txt" required="required" type="text" value="" name="nome">
+              </td>
+            </tr>
+
+            <tr role="row">
+              <td>
+                Usuário
+              </td>
+              <td>
+                <input class="txt" required="required" type="text" value="" name="usuarioNovo">
+              </td>
+            </tr>
+
+            <tr role="row">
+              <td>
+                Senha
+              </td>
+              <td>
+                <input class="txt" required="required" type="password" value="" name="senha">
+              </td>
+            </tr>
+
+            <tr role="row">
+              <td>
+                Github
+              </td>
+              <td>
+                <input class="txt" required="required" type="url" value="" name="github">
+              </td>
+            </tr>
+
+            <tr role="row">
+              <td>
+                LinkedIn
+              </td>
+              <td>
+                <input class="txt" required="required" type="url" value="" name="linkedin">
+              </td>
+            </tr>
+
+            <tr role="row">
+              <td>
+                Acesso
+              </td>
+              <td>
+                
+                <select name="access">
+                  <option value=''></option>
+                  <option value='admin'>Administrador</option>
+                  <option value='user'>Graduação</option>
+                  <option value='pos_user'>Pós-Graduação</option>
+                  <option value='dct_user'>Doutorado</option>
+                </select>
+              </td>
+            </tr>
+
+            <tr role="row">
+              <td>
+                Tombamento
+              </td>
+              <td>
+                <!-- <input class="txt" type="text" value="" name="tombamento"> -->
+                <select name="tombamento" id="lista1">
+                  <option value=''></option>
+                  <option value='all'>Todos</option>
+                  {%for equip in allTombs%}
+                    
+                    <option value={{equip.name}}>{{equip.name}}</option>
+                    
+                  {%endfor%}
+                </select>
+              </td>
+            </tr>
+            <input type="hidden" id="usuarioC" name="usuario" value={{userConnected}}>
+          </tbody>
+        </table>
+        <input type="hidden" name="newUserFlag" value=true>
+      </form>
+
+      {%if newUserLog == false%}
+        <div class="erro_div" style="border-color:black; border-style:solid; border-width:1px;">
+          <p class="no-results">Usuário não foi salvo.</p>
+          <p class="no-results">Dados incorretos ou</p>
+          <p class="no-results">você não possui permissão</p>
+        </div>
+        
+        <script type="text/javascript">
+          window.alert("Erro ao criar novo usuário!")
+        </script>
+      {%endif%}
+      <input class="botao" id="cadastrar-button" type="submit" value="Inserir usuário" form="cadastrar">
+      </div>
+      {%endif%}
+
+
+      
+    </div>
+  </main>
+</body>
+</html>

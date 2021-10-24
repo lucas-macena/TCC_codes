@@ -1,0 +1,35 @@
+#inserirNovo {
+    background-color: var(--color-background-realce);
+    width: 25rem;
+    border-radius: 10px;
+    padding: 2rem;
+    margin-top: 1.5rem;
+}
+
+#cadastrar-button {
+    margin-top: 1.5rem;
+}
+
+@media screen and (min-height: 908px) and (orientation: portrait){
+
+    #inserirNovo{
+        width: 80vw;
+        font-size: 50px;
+        height: 55vh;
+        margin-top: 10rem;
+        border-radius: 30px;
+    }
+
+    #inserirNovo input,
+    select {
+        width: 25vw;
+        height: 5vh;
+        background-color: var(--color-input);
+    }
+
+    #inserirNovo .botao {
+        font-size: 50px;
+        width: auto;
+        padding: 20px;
+    }
+}

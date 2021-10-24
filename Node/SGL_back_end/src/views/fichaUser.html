@@ -1,0 +1,31 @@
+<div class="tabela" id="logs">
+    <!-- <link rel="stylesheet" type="text/css" href="/styles/about.css"/> -->
+      
+    <table align="center">
+      <thead>
+        <tr>
+          <td>Nome</td>
+          <td>Tombamento</td>
+          <td>Etapa</td>
+          <td class="dateTime">Data/Hora</td>
+          <td>Parecer</td>
+          <td>Pendências</td>
+        </tr>
+      </thead>
+      <tbody>
+    {%for log in logs%}
+
+        <tr>
+          <td>{{ficha.name}}</td>
+          <td>{{log.tombamento}}</td>
+          <td>{{log.etapa}}</td>
+          <td class="dateTime">{{log.sendTime}}</td>
+          <td class="bigTD">{{log.message}}</td>
+          <td class="bigTD">{{log.pendencias}}</td>
+          
+        </tr>
+      
+  {%endfor%}
+      </tbody>
+    </table>
+  </div>

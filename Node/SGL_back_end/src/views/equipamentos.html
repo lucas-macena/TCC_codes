@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+<title>SGL - Equipamentos</title>
+<link rel="stylesheet" type="text/css" href="/styles/main.css"/>
+<link rel="stylesheet" type="text/css" href="/styles/equipamentos.css"/>
+<script type='text/javascript' src='http://code.jquery.com/jquery-1.7.2.min.js'></script>
+<script src="/scripts/search.js"></script>
+<script src="/scripts/sideBar.js"></script>
+<script src="/scripts/editarTomb.js"></script>
+<link rel="shortcut icon" type="imagex/png" href="/images/lamotrizLogo.ico">
+
+</head>
+
+
+
+<body>
+  <main>
+      
+    <center>
+      <div class="topo-pagina">
+        <a href="http://www.lamotriz.ufc.br/" target="_blank"><img id="lamotriz-logo" src="/images/lamotrizLogo.png"></a>
+        <div id="nome-projeto">
+          <font color =white></font>Sistema de Gestão do Lamotriz<br>
+          </font>
+            
+        </div>
+        <a href="https://github.com/lucas-macena" target="_blank"><img id="foto-perfil" src="https://avatars.githubusercontent.com/u/69221262?v=4" alt="fotoPerfil"></a>
+
+      </div>
+
+      <nav>
+        <input type="checkbox" name="menuSide" id="check">
+        <label for="check" class="menuSide">
+          <i class='fas fa-bars'></i>
+        </label>
+      
+
+      <div class="menu">
+        
+        
+        <ul>
+          <li class="item"><a href="http://{{endereço}}/">Home</a></li>
+          <li class="item"><a href="http://{{endereço}}/supervisorio">Supervisório</a></li>
+          <li class="item"><a href="http://{{endereço}}/equipamentos">Equipamentos</a></li>
+          <li class="item"><a href="http://{{endereço}}/usuarios">Usuários</a></li>
+          <li class="item"><a href="http://{{endereço}}/about">About</a></li>
+          <li class="item"><a href="http://{{endereço}}/logout">Logout</a></li>
+        </ul>
+      </div>
+    </nav>
+
+    <div class="search-container">
+      <form action="/equipamentos" id="buscar" method="post">
+        
+          <div class="buscarEquip">Buscar equipamento</div>
+          <br>
+          <select name="busca" id="tipo-busca">
+            <!-- <option value=""></option> -->
+            <option value="buscaName">Tombamento</option>
+            <option value="buscaRef">Referencia</option>
+            <option value="buscaState">Estado</option>
+            <option value="buscaGerente">Gerente</option>
+          </select>
+          <input class="txt" id="buscar-text" type="text" value="" name="tombamento">
+
+      </form>
+  
+  
+      
+      <div id="broker">
+        
+        <br>
+        <input class="botao" id="buscar-button" type="submit" value="Buscar" form="buscar">
+        
+      </div>
+    </div>
+
+  <br><br>
+
+
+  
+
+
+  <!-- <div id="debug">Equipamentos cadastrados no Lamotriz</div> -->
+
+  
+  
+  <div class="tabela">
+    
+
+      {%if tombamentos == ""%}
+
+      <p class="no-results">Nenhum tombamento encontrado</p>
+      <script type="text/javascript">
+        window.alert("Nenhum resultado!")
+      </script>
+
+      {%else%}
+          <table align="center">
+            <thead>
+              <tr>
+                <td>Estado</td>
+                <td>Tombamento</td>
+                <td>Gerente</td>
+                <td>Referencia</td>
+                <td>MQTT Enviar</td>
+                <td>MQTT Receber</td>
+                <td>IP</td>
+                {%if acesso == 'admin'%}
+                <td></td>
+                {%endif%}
+              </tr>
+            </thead>
+            <tbody>
+        {%for tomb in tombamentos%}
+  
+              <tr id="{{tomb.name}}">
+                {%if tomb.state == "online"%}
+                  <td><img src="/images/online.png" alt="online"></td>                
+                {%endif%}
+
+                {%if tomb.state == "offline"%}
+                  <td><img src="/images/offline.png" alt="offline"></td>                
+                {%endif%}
+
+                {%if tomb.state == "f-s"%}
+                  <td><img src="/images/f-s.png" alt="f-s"></td>                
+                {%endif%}
+
+                <td>{{tomb.name}}</td>
+                <td id="gerente">{{tomb.gerente}}</td>
+                <td>{{tomb.referencia}}</td>
+                <td>{{tomb.topicoEnviar}}</td>
+                <td>{{tomb.topicoReceber}}</td>
+                <td>{{tomb.ip}}</td>
+                {%if acesso == 'admin'%}
+                
+                <td><button class="botao" onclick="editar('{{tomb.name}}','{{endereço}}')"><img src="/images/editIcon.png"></button></td>
+                
+                {%endif%}
+              </tr>
+            
+        {%endfor%}
+            </tbody>
+          </table>
+      {%endif%}
+    
+
+  </div>
+</main>
+</body>
+</html>

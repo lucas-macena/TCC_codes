@@ -1,0 +1,209 @@
+
+#attUser, #newLog {
+    width: auto;
+    margin: 5px;
+}
+
+#aboutMain main{
+    height: auto;
+}
+
+#atualizarUsuario {
+    background-color: var(--color-background-realce);
+    border-radius: 10px;
+    padding-top: 0.5rem;
+}
+
+#atualizarUsuario fieldset{
+    display: flex;
+    width: 50rem;
+    border: none;
+    justify-items: left;
+    
+    
+    
+}
+
+.infoUserTable {
+    /* margin-left: 5rem; */
+    margin-right: 2.5rem;
+    position: relative;
+}
+
+.infoUserTable td {
+    
+    padding: 0.5rem;
+}
+
+.texto-solto {
+    font-size: 20px;
+}
+
+.tabela table{
+    text-align: center;
+    align-items: center;
+    background-color: var(--color-background);
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    max-width: 50vw;
+    
+}
+
+.tabela table td{
+    text-align: center;
+    align-items: center;
+    background-color: var(--color-table);
+    
+    color: white;
+    border-color: black;
+    border-style: solid;
+    
+    max-height: auto;
+    width: auto;
+    
+    border-width: 1px;
+    padding-left: 1vw;
+    padding-right: 1vw;
+    padding-top: 0.5vh;
+    padding-bottom: 0.5vh;
+
+    font-weight:500;
+    
+    font-size: 1.6rem;
+    color: var(--color-text-base);
+}
+
+.tabela img {
+    width:1.5vw;
+    height: 1.5vw;
+    padding-top: 0.5vh;
+}
+
+.txt {
+    width: 20vw;
+}
+
+.bigTD {
+    
+    word-break: normal;
+    width: auto;
+    max-width: 50vw;
+}
+
+.corpo {
+    
+    align-self: center;
+    align-content: center;
+    /* border: rgb(42, 187, 28);
+    border-width: 1px;
+    border-style: solid; */
+    height: 60vh;
+}
+
+.formulario {
+    
+    /* border: red;
+    border-width: 1px;
+    border-style: solid; */
+    padding: 3px;
+    align-self: center;
+    align-content: center;
+    
+}
+
+/* #inserirNovo{
+    padding: 50px;
+    border: black;
+    border-width: 1px;
+    border-style: solid;
+    padding: 3px;
+    height: 60vh;
+    width: 18vw;
+    
+} */
+
+#procurar {
+    padding: 50px;
+    
+    width: 50vw;
+    height: 60vh;
+}
+
+.dateTime {
+    width: auto;
+    word-break: keep-all;
+}
+
+input, select {
+    width: 10vw;
+    text-align: center;
+    
+}
+
+@media screen and (min-height: 908px) and (orientation: portrait){
+    main {
+        font-size: 50px;
+    }
+
+    .txt{
+        height: 70px;
+        font-size: 50px;
+        width: 300px;
+    }
+
+    
+
+    .botao{
+        height: 70px;
+        font-size: 50px;
+        padding: 5px;
+    }
+
+    select {
+        height: 70px;
+        font-size: 25px;
+        width: auto;
+    }
+
+    .tabela table{
+        width: 100vw;
+        
+    }
+
+    .tabela table tr{
+        width: 10vw;
+    }
+
+    .tabela table td{
+        font-size: 22px;
+        max-width: 20vw;
+    }
+
+    #atualizarUsuario{
+        padding: 20px;
+        width: 85vw;
+    }
+
+    #newLogform {
+        margin-top: 20px;
+        width: 85vw;
+        height: auto;
+        padding-top: 30px;
+        padding-bottom: 30px;
+        
+    }
+
+    #newlogform fieldset table{
+        width: 85vw;
+        
+    }
+
+    #newlog {
+        width: 30rem;
+        
+    }
+    .texto-solto {
+        font-size: 40px;
+    }
+}
